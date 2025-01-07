@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dengue Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Dengue Cases Dashboard</h1>
+
+    <div class="container">
+        <h2>Key Statistics</h2>
+        <p><strong>Total Dengue Cases:</strong> {{ total_cases }}</p>
+        <p><strong>Total Dengue Deaths:</strong> {{ total_deaths }}</p>
+    </div>
+
+    <div class="graph-container">
+        <h2>Trends Over Time</h2>
+        {{ line_graph | safe }}
+    </div>
+
+    <div class="graph-container">
+        <h2>Cases and Deaths by Region</h2>
+        {{ bar_graph | safe }}
+    </div>
+
+    <footer>
+        Built with Michael so hot Diopenes | Data Source: PH Dengue Cases 2016–2020
+    </footer>
+</body>
+</html>
